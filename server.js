@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { roll } from '/Users/josh/Developer/426/a04-myattj/lib/lib/roll.js';
+import { roll } from './lib/roll.js';
 import minimist from 'minimist';
 import express from 'express';
 
