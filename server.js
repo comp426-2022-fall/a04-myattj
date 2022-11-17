@@ -25,7 +25,7 @@ app.get('*', (req, res) => {
 })
 
 
-app.get('/app/roll/', (req, res) => {
+app.get('/app/roll', (req, res) => {
     res.send('1');
     res.send(roll(6, 2, 1)).end();
 })
