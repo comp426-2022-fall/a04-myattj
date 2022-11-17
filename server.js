@@ -23,20 +23,23 @@ app.get('/app/', (req, res) => {
 
 
 app.get('/app/roll/', (req, res) => {
-    res.send('1');
     res.send(roll(6, 2, 1)).end();
 })
 
+app.get('/app/roll/', (req, res) => {
+    res.send(roll(parseInt(req.query.sides), parseInt(req.query.dice), parseInt(req.query.rolls))).end();
+})
+
 app.get('/app/roll/:sides/', (req, res) => {
-    res.send(roll(req.params.sides || 6, 2, 1)).end();
+    res.send(roll(parseInt(req.params.sides), 2, 1)).end();
 })
 
 app.get('/app/roll/:sides/:dice/', (req, res) => {
-    res.send(roll(req.params.sides || 6, req.params.dice || 2,  1)).end();
+    res.send(roll(parseInt(req.params.sides), parseInt(req.params.dice),  1)).end();
 })
 
 app.get('/app/roll/:sides/:dice/:rolls/', (req, res) => {
-    res.send(roll(req.params.sides || 6, req.params.dice || 2,  req.params.rolls || 1)).end();
+    res.send(roll(parseInt(req.params.sides), parseInt(req.params.dice),  parseInt(req.params.rolls))).end();
 })
 
 app.get('*', (req, res) => {
