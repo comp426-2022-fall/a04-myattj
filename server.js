@@ -7,13 +7,14 @@ import express from 'express';
 const args = minimist(process.argv.slice(2));
 
 const app = express()
+app.use(express.json())
+app.use(express.urlencoded({extended:true}))
 
 
 var port = args.port || 5000;
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-console.log('200')
 
 app.get('/app/', (req, res) => {
     res.send('200 OK').end();
@@ -25,7 +26,7 @@ app.get('*', (req, res) => {
 
 
 app.get('/app/roll/', (req, res) => {
-    res.send(roll(req.sides || 6, req.dice || 2,  req.rolls || 1)).end();
+    res.send(roll(parseInt(req.sides) || 6, parseInt(req.dice) || 2,  parseInt(req.rolls) || 1)).end();
 })
 
 app.get('/app/roll/:sides/', (req, res) => {
