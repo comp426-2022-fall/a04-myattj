@@ -2,6 +2,7 @@
 import { roll } from './lib/roll.js';
 import minimist from 'minimist';
 import express from 'express';
+import req from 'express/lib/request.js';
 
 
 const args = minimist(process.argv.slice(2));
@@ -31,6 +32,7 @@ app.get('/app/roll/', (req, res) => {
 })
 
 app.get('/app/roll/', function(request, response) {
+    console.log(request.body)
     response.send(roll(parseInt(request.body['sides']), parseInt(request.body['dice']),parseInt(request.body['rolls'])))
 })
 
