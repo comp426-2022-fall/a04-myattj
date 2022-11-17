@@ -26,6 +26,7 @@ app.get('*', (req, res) => {
 
 
 app.get('/app/roll/', (req, res) => {
+    console.log(roll(parseInt(req.sides) || 6, parseInt(req.dice) || 2,  parseInt(req.rolls) || 1));
     res.send(roll(parseInt(req.sides) || 6, parseInt(req.dice) || 2,  parseInt(req.rolls) || 1)).end();
 })
 
