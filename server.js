@@ -27,7 +27,11 @@ app.get('/app/roll/', (req, res) => {
 })
 
 app.get('/app/roll/', (req, res) => {
-    res.send(roll(parseInt(req.body.sides), parseInt(req.body.dice), parseInt(req.body.rolls))).end();
+    res.send(roll(parseInt(req.query.sides), parseInt(req.query.dice), parseInt(req.query.rolls))).end();
+})
+
+app.get('/app/roll/', function(request, response) {
+    response.send(roll(parseInt(request.body['sides']), parseInt(request.body['dice']),parseInt(request.body['rolls'])))
 })
 
 app.get('/app/roll/:sides/', (req, res) => {
