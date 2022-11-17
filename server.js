@@ -20,12 +20,9 @@ app.get('/app/', (req, res) => {
     res.send('200 OK').end();
 })
 
-app.get('*', (req, res) => {
-    res.send('404 NOT FOUND').end()
-})
 
 
-app.get('/app/roll', (req, res) => {
+app.get('/app/roll/', (req, res) => {
     res.send('1');
     res.send(roll(6, 2, 1)).end();
 })
@@ -42,5 +39,8 @@ app.get('/app/roll/:sides/:dice/:rolls/', (req, res) => {
     res.send(roll(req.params.sides || 6, req.params.dice || 2,  req.params.rolls || 1)).end();
 })
 
+app.get('*', (req, res) => {
+    res.send('404 NOT FOUND').end()
+})
 
 app.listen(port);
